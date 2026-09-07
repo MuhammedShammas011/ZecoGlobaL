@@ -1,0 +1,78 @@
+/* ── Logo Belt ────────────────────────────────────────────────────────────── */
+.logo-belt {
+  width: 100%;
+  overflow: hidden;
+  background-color: #E9D8AF;
+  padding: 1.4rem 0;
+  border-top: 1px solid rgba(48, 23, 24, 0.1);
+  border-bottom: 1px solid rgba(48, 23, 24, 0.1);
+  position: relative;
+}
+
+/* Left & right edge fade */
+.logo-belt::before,
+.logo-belt::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.logo-belt::before {
+  left: 0;
+  background: linear-gradient(to right, #E9D8AF 0%, transparent 100%);
+}
+
+.logo-belt::after {
+  right: 0;
+  background: linear-gradient(to left, #E9D8AF 0%, transparent 100%);
+}
+
+/* Scrolling track */
+.logo-belt__track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.logo-belt__track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Each item */
+.logo-belt__item {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 2.5rem;
+  flex-shrink: 0;
+}
+
+.logo-belt__name {
+  font-family: var(--font-agency);
+  font-size: 1.05rem;
+  color: rgba(48, 23, 24, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.logo-belt__item:hover .logo-belt__name {
+  color: rgba(48, 23, 24, 0.9);
+}
+
+.logo-belt__sep {
+  color: rgba(48, 23, 24, 0.2);
+  font-size: 0.9rem;
+}

@@ -1,0 +1,76 @@
+.final-cta {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.final-cta__texture {
+  position: absolute;
+  inset: -5%;
+  background:
+    radial-gradient(ellipse at 60% 40%, rgba(139, 115, 85, 0.35) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 70%, rgba(48, 23, 24, 0.4) 0%, transparent 50%),
+    linear-gradient(135deg, #1A1014 0%, #301718 35%, #1A1014 60%, #1A1014 100%);
+  will-change: transform;
+}
+
+/* Grain lines mirroring hero */
+.final-cta__texture::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    91deg,
+    transparent 0px,
+    transparent 22px,
+    rgba(196, 168, 130, 0.035) 22px,
+    rgba(196, 168, 130, 0.035) 23px
+  );
+}
+
+.final-cta__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(26, 16, 20, 0.5) 0%,
+    rgba(26, 16, 20, 0.65) 100%
+  );
+}
+
+.final-cta__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.final-cta__title {
+  font-size: clamp(2.5rem, 5vw, 5.5rem);
+  font-weight: 300;
+  color: var(--color-cream);
+  line-height: 1.15;
+}
+.final-cta__title em {
+  font-style: italic;
+  color: rgba(196, 168, 130, 0.85);
+}
+
+.final-cta__brand {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: rgba(196, 168, 130, 0.5);
+}
+
+.final-cta__btn {
+  margin-top: 1rem;
+}

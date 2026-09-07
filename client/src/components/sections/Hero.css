@@ -1,0 +1,114 @@
+.hero {
+  position: relative;
+  width: 100%;
+  /* Extend height to ensure it fully covers the screen and reaches behind the navbar */
+  min-height: calc(100svh + 80px);
+  padding-top: 80px;
+  padding-bottom: clamp(4rem, 8vh, 8rem);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+/* ── Background ────────────────────────────────────────────────────────────── */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  /* 20% black overlay to darken the video slightly */
+  background: rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+
+/* ── Content ───────────────────────────────────────────────────────────────── */
+.hero__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-align: left;
+  padding: 0 var(--gutter);
+}
+
+.hero__title {
+  font-family: var(--font-agency);
+  font-size: clamp(2.5rem, 8vw, 6.5rem);
+  font-weight: normal;
+  letter-spacing: -0.05em;
+  color: #ffffff !important;
+  line-height: 0.9;
+}
+
+.hero__subtext {
+  font-family: var(--font-sans);
+  font-size: clamp(0.85rem, 1.2vw, 1.1rem);
+  color: #ffffff !important;
+  max-width: 500px;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+  opacity: 0.8;
+}
+
+.hero__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+  padding: 0.9rem 2.4rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  /* Use !important to override global index.css <a> tag color */
+  color: #ffffff !important;
+  /* Glassmorphism background */
+  background-color: rgba(233, 216, 175, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  /* Curved edges & thin frosted border */
+  border-radius: 50px;
+  border: 1px solid rgba(233, 216, 175, 0.3);
+  text-decoration: none;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.hero__btn svg {
+  width: 1.2em;
+  height: 1.2em;
+  transition: transform 0.4s ease;
+}
+
+.hero__btn:hover {
+  background-color: rgba(233, 216, 175, 0.25);
+  border-color: rgba(233, 216, 175, 0.6);
+  transform: translateY(-2px);
+}
+
+.hero__btn:hover svg {
+  transform: translateX(4px);
+}
+
+@media (max-width: 480px) {
+  .hero__title {
+    letter-spacing: 0.1em;
+  }
+}

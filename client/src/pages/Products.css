@@ -1,0 +1,340 @@
+/* ══════════════════════════════════════════════════════════════
+   Products Page — matches reference design
+══════════════════════════════════════════════════════════════ */
+
+.products-page {
+  background-color: #EDEADE;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SECTION 01 — Hero + Zecowood (two-column)
+══════════════════════════════════════════════════════════════ */
+.pp1-section {
+  background-color: #EDEADE;
+  padding-top: 10rem;
+  overflow: hidden;
+}
+
+.pp1-section__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  min-height: 85vh;
+  gap: 0;
+}
+
+/* ── Left column ── */
+.pp1__left {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 6rem;
+  padding-right: 4rem;
+}
+
+/* ── Hero text block ── */
+.pp1__hero {
+  margin-bottom: 8rem;
+}
+
+.ph__kicker {
+  display: inline-block;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(44, 26, 14, 0.5);
+  margin-bottom: 1.2rem;
+}
+
+.ph__line {
+  font-family: var(--font-sans);
+  font-size: clamp(2.6rem, 5.5vw, 5.2rem);
+  font-weight: 300;
+  color: #2C1A0E;
+  line-height: 1.05;
+  white-space: nowrap;
+}
+
+.ph__line--italic em {
+  font-style: italic;
+  color: #8B6B4A;
+}
+
+.ph__divider {
+  width: 36px;
+  height: 1px;
+  background: rgba(44, 26, 14, 0.22);
+  margin: 1.6rem 0;
+}
+
+.ph__sub {
+  font-size: 0.88rem;
+  color: rgba(44, 26, 14, 0.6);
+  line-height: 1.75;
+}
+
+/* ── Product 01 text ── */
+.pp1__text {
+  flex: 1;
+  margin-left: 35%;
+}
+
+.pp1__name {
+  font-family: var(--font-sans);
+  font-size: clamp(2.8rem, 4.5vw, 4.5rem);
+  font-weight: normal;
+  color: #2C1A0E;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.pp1__tagline {
+  font-size: 0.92rem;
+  color: #7A5535;
+  font-style: italic;
+  margin-bottom: 1.4rem;
+}
+
+.pp1__desc {
+  font-size: 0.84rem;
+  line-height: 1.85;
+  color: rgba(44, 26, 14, 0.58);
+  max-width: 360px;
+  margin-bottom: 2rem;
+}
+
+/* ── Right column ── */
+.pp1__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
+}
+
+/* Corner tag */
+.ph__corner-tag {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.05rem;
+  margin-bottom: auto;
+  padding-top: 0.4rem;
+}
+
+.ph__corner-tag span {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(44, 26, 14, 0.38);
+  line-height: 1.8;
+}
+
+/* Plywood image — large, bottom-anchored */
+.pp1__img {
+  width: 110%;
+  max-width: none;
+  object-fit: contain;
+  display: block;
+  margin-top: auto;
+  position: relative;
+  bottom: 4rem;
+  right: -14rem;
+  filter: drop-shadow(0 24px 48px rgba(44, 26, 14, 0.1));
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SECTION 02 — Zeco Door
+══════════════════════════════════════════════════════════════ */
+.pp2-section {
+  background-color: #E4DDD2;
+  overflow: hidden;
+  padding-bottom: 0;
+}
+
+.pp2-section__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: flex-end;
+  min-height: 80vh;
+  gap: 5rem;
+}
+
+/* ── Left: door image + side tag ── */
+.pp2__img-wrap {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+
+.pp2__side-tag {
+  position: absolute;
+  left: -3.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+}
+
+.pp2__side-tag span {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(44, 26, 14, 0.35);
+  line-height: 1.9;
+}
+
+.pp2__img {
+  width: 100%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 30px 60px rgba(44, 26, 14, 0.14));
+}
+
+/* ── Right: text ── */
+.pp2__text {
+  padding-bottom: 6rem;
+  padding-top: 5rem;
+  padding-left: 8rem;
+}
+
+.pp2__name {
+  font-family: var(--font-sans);
+  font-size: clamp(2.8rem, 4.5vw, 4.5rem);
+  font-weight: normal;
+  color: #2C1A0E;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.pp2__tagline {
+  font-size: 0.92rem;
+  color: #7A5535;
+  font-style: italic;
+  margin-bottom: 1.4rem;
+}
+
+.pp2__desc {
+  font-size: 0.84rem;
+  line-height: 1.85;
+  color: rgba(44, 26, 14, 0.58);
+  max-width: 360px;
+  margin-bottom: 2rem;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SHARED — Number row + CTA button
+══════════════════════════════════════════════════════════════ */
+.pc__num-row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+  margin-left: -5.5rem;
+}
+
+.pc__num {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: rgba(44, 26, 14, 0.38);
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+.pc__num-line {
+  width: 50px;
+  height: 1px;
+  background: rgba(44, 26, 14, 0.18);
+  flex-shrink: 0;
+}
+
+.pc__cat {
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  color: rgba(44, 26, 14, 0.42);
+}
+
+/* Circular CTA */
+.pc__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: #2C1A0E;
+  margin-top: 0.5rem;
+}
+
+.pc__cta-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(44, 26, 14, 0.32);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.pc__cta:hover .pc__cta-circle {
+  background: #2C1A0E;
+  border-color: #2C1A0E;
+  color: #EDEADE;
+}
+
+.pc__cta-text {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(44, 26, 14, 0.5);
+  transition: color 0.3s ease;
+}
+
+.pc__cta:hover .pc__cta-text {
+  color: #2C1A0E;
+}
+
+/* Footer Separator */
+.products-footer-line {
+  height: 1px;
+  background-color: rgba(44, 26, 14, 0.2);
+  width: 100%;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Responsive
+══════════════════════════════════════════════════════════════ */
+@media (max-width: 960px) {
+
+  .pp1-section__inner,
+  .pp2-section__inner {
+    grid-template-columns: 1fr;
+    min-height: unset;
+  }
+
+  .pp1__left {
+    padding-right: 0;
+  }
+
+  .pp1__right {
+    align-items: center;
+  }
+
+  .pp1__img {
+    width: 100%;
+    right: 0;
+  }
+
+  .pp2__side-tag {
+    display: none;
+  }
+
+  .pp2__text {
+    padding-top: 2rem;
+  }
+}

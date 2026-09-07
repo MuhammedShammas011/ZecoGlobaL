@@ -1,0 +1,81 @@
+.sustainability {
+  position: relative;
+  padding: var(--space-xl) 0;
+  background: var(--color-brown);
+  overflow: hidden;
+}
+
+.sustainability__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.sustainability__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.sustainability__title-wrap {
+  margin-bottom: 3rem;
+}
+
+.sustainability__line {
+  font-size: clamp(2.2rem, 4.5vw, 5rem);
+  font-weight: 300;
+  color: var(--color-cream);
+  line-height: 1.15;
+}
+
+.sustainability__line em {
+  font-style: italic;
+  color: var(--color-wood-mid);
+}
+
+.sustainability__sub {
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-style: italic;
+  color: rgba(196, 168, 130, 0.7);
+  margin-bottom: 4rem;
+  max-width: 500px;
+}
+
+.sustainability__flow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.sustainability__flow-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sustainability__flow-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  color: rgba(196, 168, 130, 0.55);
+  padding: 0.6rem 1.2rem;
+  border: 1px solid rgba(196, 168, 130, 0.2);
+  transition: border-color var(--transition-med), color var(--transition-med);
+}
+.sustainability__flow-label:hover {
+  border-color: rgba(196, 168, 130, 0.5);
+  color: var(--color-beige);
+}
+
+.sustainability__flow-arrow {
+  color: rgba(196, 168, 130, 0.3);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  .sustainability__flow { gap: 0.6rem; }
+}

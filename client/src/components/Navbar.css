@@ -1,0 +1,204 @@
+/* ── Navbar ──────────────────────────────────────────────────────────────── */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1.8rem var(--gutter);
+  transition: background 0.5s var(--ease-smooth),
+    backdrop-filter 0.5s var(--ease-smooth),
+    padding 0.4s var(--ease-smooth);
+  /* Fully transparent — hero background shows through seamlessly */
+  background: transparent;
+}
+
+.navbar--scrolled {
+  /* Once scrolled, add a subtle warm tinted blur to stay readable */
+  background: rgba(233, 216, 175, 0.82);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  padding: 1.2rem var(--gutter);
+  border-bottom: 1px solid rgba(48, 23, 24, 0.15);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.navbar__logo {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+.navbar__logo-img-hidden {
+  height: 32px;
+  /* Set the master height of the logo here */
+  width: auto;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.navbar__logo-mask {
+  position: absolute;
+  inset: 0;
+  /* Default to white to contrast with video on hero */
+  background-color: #ffffff;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  transition: background-color 0.5s var(--ease-smooth);
+}
+
+.navbar--scrolled .navbar__logo-mask,
+.navbar--dark-text .navbar__logo-mask {
+  background-color: #301718;
+}
+
+.navbar__logo:hover {
+  opacity: 0.65;
+}
+
+/* ── Desktop links ─────────────────────────────────────────────────────────── */
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 2.8rem;
+  list-style: none;
+}
+
+.navbar__link {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: capitalize;
+  /* Default to white */
+  color: #ffffff !important;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.5s var(--ease-smooth);
+}
+
+.navbar--scrolled .navbar__link,
+.navbar--dark-text .navbar__link {
+  color: #301718 !important;
+}
+
+.navbar__link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  transition: width 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  color: var(--color-cream);
+}
+
+.navbar__link:hover::after,
+.navbar__link--active::after {
+  width: 100%;
+}
+
+/* ── Hamburger ─────────────────────────────────────────────────────────────── */
+.navbar__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.navbar__hamburger span {
+  display: block;
+  width: 22px;
+  height: 1px;
+  /* Default to white */
+  background: #ffffff !important;
+  transition: all 0.35s var(--ease-smooth), background 0.5s var(--ease-smooth);
+  transform-origin: center;
+}
+
+.navbar--scrolled .navbar__hamburger span,
+.navbar--dark-text .navbar__hamburger span {
+  background: #301718 !important;
+}
+
+.navbar__hamburger.is-open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.navbar__hamburger.is-open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.navbar__hamburger.is-open span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* ── Mobile menu ───────────────────────────────────────────────────────────── */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background: var(--color-charcoal);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem var(--gutter);
+}
+
+.mobile-menu__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mobile-menu__link {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 300;
+  color: var(--color-cream);
+  text-decoration: none;
+  line-height: 1.1;
+  transition: color var(--transition-fast), opacity var(--transition-fast);
+  display: inline-block;
+}
+
+.mobile-menu__link:hover {
+  color: var(--color-beige);
+}
+
+.mobile-menu__footer {
+  margin-top: auto;
+}
+
+/* ── Responsive ────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .navbar__links {
+    display: none;
+  }
+
+  .navbar__hamburger {
+    display: flex;
+  }
+}

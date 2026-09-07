@@ -1,0 +1,267 @@
+/* ══════════════════════════════════════════════════════════════
+   Process Page — Reference Layout
+══════════════════════════════════════════════════════════════ */
+.process-page {
+  background-color: #EDEADE;
+  color: #2C1A0E;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Kicker label style */
+.proc__kicker {
+  display: block;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(44, 26, 14, 0.4);
+  margin-bottom: 1.5rem;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   HERO SECTION
+══════════════════════════════════════════════════════════════ */
+.proc-hero {
+  padding-top: 10rem;
+  position: relative;
+}
+
+.proc-hero__inner {
+  position: relative;
+  z-index: 2;
+}
+
+.proc-hero__content {
+  max-width: 500px;
+}
+
+.proc__title {
+  font-family: var(--font-sans);
+  font-size: clamp(3rem, 5vw, 5.5rem);
+  font-weight: 300;
+  color: #2C1A0E;
+  line-height: 1.05;
+  white-space: nowrap;
+}
+
+.proc__title--italic em {
+  font-style: italic;
+  color: #8B6B4A;
+}
+
+.proc__desc {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: rgba(44, 26, 14, 0.7);
+  margin-top: 3rem;
+  max-width: 440px;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   TIMELINE SECTION
+══════════════════════════════════════════════════════════════ */
+.proc-timeline {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.proc-timeline__inner {
+  display: grid;
+  grid-template-columns: 35% 65%;
+  position: relative;
+}
+
+/* LEFT COLUMN (Wood + Text) */
+.proc-tl__left {
+  position: relative;
+}
+
+.proc-tl__sticky {
+  position: sticky;
+  top: 20vh;
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+}
+
+.proc-tl__side-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-top: 8rem;
+  margin-left: 2rem;
+}
+
+.proc-tl__side-text span {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(44, 26, 14, 0.5);
+  line-height: 1.6;
+}
+
+.proc-tl__side-text::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: rgba(44, 26, 14, 0.2);
+  margin-bottom: 1rem;
+}
+
+/* Stage Hover Images (straight to its own process) */
+.proc-stage__hover-img-wrap {
+  position: absolute;
+  top: 50%;
+  left: -16rem; /* Positioned more to the right */
+  width: 15rem; /* Decreased width, height auto */
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(-50%) scale(0.95);
+}
+
+.proc-stage__hover-img-wrap.active {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+.proc-stage__hover-img {
+  width: 100%;
+  height: auto;
+  box-shadow: 0 20px 50px rgba(44, 26, 14, 0.15);
+  display: block;
+}
+
+.proc-tl__wood-wrap {
+  position: absolute;
+  bottom: -10rem;
+  left: -20rem;
+  /* Pull it off-screen to the left */
+  width: 32rem;
+  z-index: 1;
+}
+
+.proc-tl__wood-img {
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: 2;
+  /* Added tilt and reduced drop shadow to let floor shadow stand out */
+  transform: rotate(15deg);
+  filter: drop-shadow(0px 25px 40px rgba(44, 26, 14, 0.35));
+}
+
+/* Floor shadow underneath the wood */
+.proc-tl__wood-wrap::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 20px;
+  background: rgba(28, 18, 8, 0.25);
+  border-radius: 50%;
+  filter: blur(8px);
+  z-index: 1;
+}
+
+/* RIGHT COLUMN (Timeline) */
+.proc-tl__right {
+  position: relative;
+  padding-left: 2rem;
+  padding-bottom: 10rem;
+}
+
+/* The vertical continuous line */
+.proc-timeline__line {
+  position: absolute;
+  top: 2rem;
+  bottom: 0;
+  left: 6.5rem;
+  /* Positions the line perfectly */
+  width: 1px;
+  background: rgba(44, 26, 14, 0.15);
+}
+
+.proc-stages {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  /* Gap between stages */
+}
+
+/* Individual Stage */
+.proc-stage {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  z-index: 2;
+}
+
+.proc-stage__num {
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  color: rgba(44, 26, 14, 0.4);
+  width: 4.5rem;
+  text-align: right;
+  padding-top: 0.15rem;
+  /* align with title text */
+}
+
+.proc-stage__dot {
+  width: 6px;
+  height: 6px;
+  background-color: #2C1A0E;
+  border-radius: 50%;
+  margin-left: 1.8rem;
+  margin-right: 3rem;
+  margin-top: 0.75rem;
+  /* Align dot vertically with text */
+  flex-shrink: 0;
+}
+
+.proc-stage__content {
+  flex: 1;
+}
+
+.proc-stage__title {
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #2C1A0E;
+  margin-bottom: 0.8rem;
+}
+
+.proc-stage__desc {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgba(44, 26, 14, 0.6);
+  max-width: 420px;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Responsive
+══════════════════════════════════════════════════════════════ */
+@media (max-width: 960px) {
+  .proc-timeline__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .proc-tl__left {
+    display: none;
+    /* Hide decorative left column on mobile */
+  }
+
+  .proc-timeline__line {
+    left: 4.5rem;
+  }
+
+  .proc-stage__dot {
+    margin-left: 1.8rem;
+    margin-right: 1.5rem;
+  }
+}

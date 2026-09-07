@@ -1,0 +1,95 @@
+.factory {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.factory__bg {
+  position: absolute;
+  inset: -20%;
+  /* CSS factory visual — dark industrial environment */
+  background:
+    radial-gradient(ellipse at 20% 60%, rgba(92, 61, 30, 0.5) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 30%, rgba(139, 115, 85, 0.2) 0%, transparent 40%),
+    linear-gradient(160deg, #0D0C0A 0%, #1C1208 30%, #241508 55%, #0D0C0A 100%);
+  /* Simulated factory lighting through CSS */
+  box-shadow:
+    inset 0 0 200px rgba(196, 168, 130, 0.06),
+    inset 40% 0 300px rgba(92, 61, 30, 0.15);
+  will-change: transform;
+}
+
+/* Grid of light beams */
+.factory__bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      85deg,
+      transparent 0px,
+      transparent 80px,
+      rgba(196, 168, 130, 0.015) 80px,
+      rgba(196, 168, 130, 0.015) 81px
+    );
+}
+
+/* Machine silhouette shapes */
+.factory__bg::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background:
+    linear-gradient(to top, rgba(10, 8, 5, 0.9) 0%, transparent 100%);
+}
+
+.factory__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(10, 8, 5, 0.6) 0%,
+    rgba(10, 8, 5, 0.3) 50%,
+    rgba(10, 8, 5, 0.5) 100%
+  );
+  z-index: 1;
+}
+
+.factory__content {
+  position: relative;
+  z-index: 2;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+.factory__kicker {
+  display: inline-block;
+  color: rgba(196, 168, 130, 0.55);
+  margin-bottom: 3rem;
+}
+
+.factory__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.factory__text-line {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 5rem);
+  font-weight: 300;
+  color: var(--color-cream);
+  line-height: 1.15;
+  will-change: transform, opacity;
+}
+
+@media (max-width: 600px) {
+  .factory {
+    min-height: 60vh;
+  }
+}

@@ -1,0 +1,254 @@
+/* ── ZecoGlobal Design System ────────────────────────────────────────────── */
+
+@font-face {
+  font-family: 'Agency';
+  src: url('./assets/agency.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('./assets/Aeonik/AeonikTRIAL-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('./assets/Aeonik/AeonikTRIAL-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('./assets/Aeonik/AeonikTRIAL-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Google Fonts are loaded in index.html ── */
+
+:root {
+  /* Color Palette */
+  --color-cream:       #E9D8AF;
+  --color-cream-dark:  #DEC99A;
+  --color-beige:       #C4A882;
+  --color-wood-mid:    #8B7355;
+  --color-wood-deep:   #5C3D1E;
+  --color-brown:       #301718;
+  --color-charcoal:    #1A1014;
+  --color-charcoal-2:  #261318;
+  --color-charcoal-3:  #3A1E22;
+  --color-white:       #FFFFFF;
+  --color-border:      rgba(48, 23, 24, 0.12);
+  --color-border-light:rgba(233, 216, 175, 0.15);
+
+  /* Typography */
+  --font-serif:  'Aeonik', sans-serif;
+  --font-sans:   'Aeonik', sans-serif;
+  --font-agency: 'Agency', sans-serif;
+
+  /* Spacing scale */
+  --space-xs:   0.5rem;
+  --space-sm:   1rem;
+  --space-md:   2rem;
+  --space-lg:   4rem;
+  --space-xl:   8rem;
+  --space-2xl:  12rem;
+
+  /* Layout */
+  --max-width:  1440px;
+  --gutter:     clamp(1.5rem, 5vw, 5rem);
+
+  /* Transitions */
+  --ease-smooth:  cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-expo:  cubic-bezier(0.7, 0, 0.84, 0);
+  --transition-fast:   0.2s var(--ease-smooth);
+  --transition-med:    0.45s var(--ease-smooth);
+  --transition-slow:   0.8s var(--ease-out-expo);
+}
+
+/* ── Reset & Base ────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-brown);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── Typography ──────────────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(3rem, 8vw, 8rem); }
+h2 { font-size: clamp(2.5rem, 5vw, 5.5rem); }
+h3 { font-size: clamp(1.8rem, 3vw, 3rem); }
+h4 { font-size: clamp(1.2rem, 2vw, 1.8rem); }
+
+p { line-height: 1.7; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ── Utility Classes ─────────────────────────────────────────────────────── */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.serif { font-family: var(--font-serif); }
+.sans  { font-family: var(--font-sans); }
+
+.text-cream    { color: var(--color-cream); }
+.text-brown    { color: var(--color-brown); }
+.text-beige    { color: var(--color-beige); }
+.text-charcoal { color: var(--color-charcoal); }
+
+.bg-cream     { background-color: var(--color-cream); }
+.bg-charcoal  { background-color: var(--color-charcoal); }
+.bg-brown     { background-color: var(--color-brown); }
+
+.label {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.divider {
+  width: 3rem;
+  height: 1px;
+  background-color: var(--color-beige);
+}
+
+/* ── Scroll bar ──────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--color-cream); }
+::-webkit-scrollbar-thumb { background: var(--color-beige); border-radius: 2px; }
+
+/* ── Selection ───────────────────────────────────────────────────────────── */
+::selection {
+  background: var(--color-beige);
+  color: var(--color-brown);
+}
+
+/* ── Reduced motion ──────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Overflow clip for section animations ────────────────────────────────── */
+.overflow-clip { overflow: hidden; }
+
+/* ── Button styles ───────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 1rem 2.2rem;
+  border: 1px solid currentColor;
+  cursor: pointer;
+  transition: all var(--transition-med);
+  background: transparent;
+}
+
+.btn-light {
+  color: var(--color-cream);
+  border-color: rgba(245,240,232,0.4);
+}
+.btn-light:hover {
+  background: var(--color-cream);
+  color: var(--color-brown);
+}
+
+.btn-dark {
+  color: var(--color-brown);
+  border-color: var(--color-brown);
+}
+.btn-dark:hover {
+  background: var(--color-brown);
+  color: var(--color-cream);
+}
+
+/* ── Page transition wrapper ─────────────────────────────────────────────── */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* ── Global Theme Overrides (Requested by User) ─────────────────────────── */
+body, footer {
+  background-color: #E9D8AF !important;
+  color: #301718 !important;
+}
+nav {
+  /* Navbar background is handled in Navbar.css — no override here */
+  color: #301718 !important;
+}
+section, main, article, aside {
+  background-color: #E9D8AF !important;
+  position: relative;
+  z-index: 2;
+}
+
+/* Let the wood piece show through the first two sections */
+.hero, .material {
+  background-color: transparent !important;
+}
+
+h1, h2, h3, h4, h5, h6, p, span:not(.navbar__hamburger span), a, button, li {
+  color: #301718 !important;
+}
+
+/* Preserve borders and lines to be visible against the new background */
+.divider, .hero__line, .hero__scroll-line, .navbar__link::after {
+  background-color: #301718 !important;
+}
+.btn, .navbar__inner, .mobile-menu {
+  border-color: #301718 !important;
+}

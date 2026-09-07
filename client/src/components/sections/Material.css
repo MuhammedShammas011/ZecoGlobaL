@@ -1,0 +1,227 @@
+.material {
+  padding: 4rem 0 4rem 0;
+  background: var(--color-cream);
+  overflow: hidden;
+  position: relative;
+}
+
+
+
+.material__header {
+  max-width: 700px;
+  margin-bottom: 3rem;
+}
+
+.material__kicker {
+  display: inline-block;
+  color: var(--color-beige);
+  margin-bottom: 1.5rem;
+}
+
+.material__title {
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
+  color: var(--color-brown);
+  margin-bottom: 2rem;
+  line-height: 1.05;
+}
+
+.material__title em {
+  font-style: italic;
+  color: var(--color-wood-mid);
+}
+
+.material__body {
+  font-size: 1rem;
+  color: var(--color-charcoal-3);
+  max-width: 480px;
+  line-height: 1.8;
+}
+
+/* ── Products layout ─────────────────────────────────────────────────────── */
+.material__products {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 3rem;
+  align-items: start;
+  padding-bottom: 2rem;
+  max-width: 850px; /* Constrain to the left side, leaving room for panda */
+}
+
+.material__product {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.material__product-video-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: rgba(48, 23, 24, 0.05); /* Very faint charcoal */
+  border: 1px dashed rgba(48, 23, 24, 0.2);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.material__product-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.material__product-video-placeholder {
+  color: var(--color-charcoal-3);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  z-index: 0;
+}
+
+.material__product-tag {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: var(--color-beige);
+  margin-bottom: 0.5rem;
+}
+
+.material__product-name {
+  font-size: clamp(1.6rem, 3vw, 2.5rem);
+  color: var(--color-brown);
+  line-height: 1;
+  margin: 0;
+}
+
+.material__product-tagline {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--color-wood-mid);
+  margin: 0;
+}
+
+.material__product-desc {
+  font-size: 0.9rem;
+  color: var(--color-charcoal-3);
+  line-height: 1.7;
+  max-width: 320px;
+  margin: 0;
+}
+
+.material__product-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-brown) !important;
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-beige);
+  padding-bottom: 2px;
+  width: fit-content;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.material__product-link:hover {
+  color: var(--color-beige) !important;
+  border-color: var(--color-brown);
+}
+
+.material__product-divider {
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--color-beige), transparent);
+  align-self: stretch;
+  min-height: 200px;
+}
+
+@media (max-width: 900px) {
+  .material__products {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .material__product-divider {
+    width: 100%;
+    height: 1px;
+    min-height: unset;
+    background: linear-gradient(to right, transparent, var(--color-beige), transparent);
+  }
+}
+
+.material__panda-wrapper {
+  position: absolute;
+  /* Adjusting this value moves the panda up or down */
+  bottom: -10px;
+  right: 5%;
+  height: clamp(500px, 60vh, 1200px);
+  width: auto;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.material__panda {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  object-position: bottom;
+  pointer-events: none;
+  transform-origin: bottom center;
+  transition: transform 0.4s ease;
+}
+
+.material__panda-wrapper:hover .material__panda {
+  transform: scale(1.02);
+}
+
+.material__panda-bubble {
+  position: absolute;
+  top: 5%;
+  left: 15px;
+  transform: translateX(-90%) translateY(20px) scale(0.9);
+  /* Sky cloud design */
+  background: #ffffff;
+  color: var(--color-charcoal);
+  padding: 0.8rem 1.2rem;
+  border-radius: 50px;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-align: center;
+  box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+  border: none;
+  /* Hidden initial state */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 3;
+}
+
+/* Thought bubble trail pointing down to the panda */
+.material__panda-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  right: 25px;
+  width: 12px;
+  height: 12px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 12px 12px 0 -2px #ffffff, 22px 24px 0 -4px #ffffff;
+}
+
+.material__panda-wrapper:hover .material__panda-bubble {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-90%) translateY(0) scale(1);
+}

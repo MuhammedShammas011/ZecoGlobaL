@@ -1,0 +1,133 @@
+/* ── Zeepa Section ───────────────────────────────────────────────────────── */
+.zeepa {
+  padding: 4rem 0 0 0;
+  background: var(--color-cream);
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(48, 23, 24, 0.1);
+  min-height: 600px;
+}
+
+/* ── Bamboo — both sides, full height ─────────────────────────────────────── */
+.zeepa__bamboo {
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  object-position: bottom;
+  pointer-events: none;
+  opacity: 0.70;
+  z-index: 0;
+}
+
+.zeepa__bamboo--left {
+  left: 0;
+  /* Original leans right, so no mirror is needed to lean inwards */
+  transform: translateX(-40%);
+}
+
+.zeepa__bamboo--right {
+  right: 0;
+  /* Original leans right, so we mirror it to lean left (inwards) */
+  transform: translateX(40%) scaleX(-1);
+}
+
+/* ── Container override to sit above bamboo ───────────────────────────────── */
+.zeepa__container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Layout ───────────────────────────────────────────────────────────────── */
+.zeepa__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: end;
+  /* Align panda to bottom of grid */
+  min-height: 560px;
+}
+
+/* ── Text content ─────────────────────────────────────────────────────────── */
+.zeepa__content {
+  max-width: 100%;
+  padding-bottom: 8rem;
+  /* margin-left: 3rem; */
+  /* Extra breathing room to shift text up and right relative to the panda */
+}
+
+.zeepa__kicker {
+  display: inline-block;
+  color: var(--color-beige);
+  margin-bottom: 1.5rem;
+}
+
+.zeepa__title {
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  color: var(--color-brown);
+  margin-bottom: 2rem;
+  line-height: 1.05;
+}
+
+.zeepa__title em {
+  font-style: italic;
+  color: var(--color-wood-mid);
+}
+
+.zeepa__body {
+  font-size: 0.95rem;
+  color: var(--color-charcoal-3);
+  line-height: 1.8;
+  max-width: 100%;
+  margin-bottom: 1.2rem;
+}
+
+.zeepa__body--secondary {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--color-wood-mid);
+  margin-bottom: 0;
+}
+
+/* ── Panda illustration — anchored to bottom ──────────────────────────────── */
+.zeepa__panda-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.zeepa__panda {
+  width: 100%;
+  max-width: 560px;
+  /* Bigger panda */
+  height: auto;
+  object-fit: contain;
+  /* No animation — static */
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .zeepa__layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    min-height: unset;
+  }
+
+  .zeepa__panda-wrap {
+    order: -1;
+  }
+
+  .zeepa__panda {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .zeepa__bamboo--left {
+    left: -15%;
+  }
+
+  .zeepa__bamboo--right {
+    right: -15%;
+  }
+}
