@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { gsap } from '../../animations/gsap';
 import useGSAP from '../../hooks/useGSAP';
 import './Zeepa.css';
-import pandaHI from '../../assets/Branding/PandaHI.png';
+import pandaHI from '../../assets/PandaSitting.png';
 import bamboo from '../../assets/Branding/Tree.png';
 
 const Zeepa = () => {

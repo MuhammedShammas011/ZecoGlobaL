@@ -107,8 +107,42 @@
   transform: translateX(4px);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100svh;
+    padding-top: 100px;
+    padding-bottom: 3rem;
+    align-items: flex-end; /* Keep it aligned to bottom like desktop */
+  }
+
+  .hero__content {
+    text-align: left; /* Keep left alignment */
+    display: block;
+  }
+
   .hero__title {
-    letter-spacing: 0.1em;
+    font-size: clamp(3rem, 12vw, 4.5rem); 
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+  }
+
+  .hero__subtext {
+    font-size: 1.05rem;
+    max-width: 100%;
+    margin-top: 1rem;
+  }
+
+  .hero__btn {
+    margin-top: 1.5rem;
+    padding: 0.8rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding-bottom: 2rem;
+  }
+  .hero__title {
+    font-size: 3.5rem;
   }
 }
